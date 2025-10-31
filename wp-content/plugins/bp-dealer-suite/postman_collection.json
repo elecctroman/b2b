@@ -1,0 +1,36 @@
+{
+  "info": {
+    "name": "BusinessPlus Dealer Suite API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get Profile",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/wp-json/bp-dealer/v1/me"
+      }
+    },
+    {
+      "name": "List Products",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/wp-json/bp-dealer/v1/products"
+      }
+    },
+    {
+      "name": "Create Order",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "Content-Type", "value": "application/json"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"idempotency_key\": \"sample-key\",\n  \"lines\": [{\n    \"product_id\": 123,\n    \"quantity\": 1\n  }]\n}"
+        },
+        "url": "{{base_url}}/wp-json/bp-dealer/v1/orders"
+      }
+    }
+  ]
+}
